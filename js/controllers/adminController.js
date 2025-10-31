@@ -1,7 +1,4 @@
-// js/adminController.js
-// Lógica que maneja el formulario y la tabla de administración.
 
-// Elementos del DOM
 const form = document.getElementById('producto-form');
 const nombreEl = document.getElementById('nombre');
 const stockEl = document.getElementById('stock');
@@ -15,12 +12,8 @@ const cancelBtn = document.getElementById('btn-cancel');
 const submitBtn = document.getElementById('btn-submit');
 const tbody = document.getElementById('productos-tbody');
 
-// --- Funciones de Renderizado ---
-// js/adminController.js (SOLO SECCIÓN renderizarTabla MODIFICADA)
 
-// ... (resto del código)
 
-// --- Funciones de Renderizado ---
 function renderizarTabla(productos) {
     tbody.innerHTML = '';
     if (!productos || productos.length === 0) {
@@ -44,10 +37,7 @@ function renderizarTabla(productos) {
     });
 }
 
-// ... (resto del código)
 
-
-// --- Lógica del Controller ---
 class AdminController {
     constructor() {
         this.configurarEventos();
@@ -64,7 +54,7 @@ class AdminController {
             const productos = await AdminService.getProductos();
             renderizarTabla(productos);
         } catch (error) {
-            tbody.innerHTML = `<tr><td colspan="6">❌ Error al cargar la tabla: ${error.message}</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="6"> Error al cargar la tabla: ${error.message}</td></tr>`;
         }
     }
 
@@ -90,15 +80,15 @@ class AdminController {
             if (idEl.value) {
                 // UPDATE
                 await AdminService.updateProducto(idEl.value, payload);
-                alert("✅ Registro actualizado.");
+                alert(" Registro actualizado.");
             } else {
                 // CREATE
                 await AdminService.createProducto(payload);
-                alert("✅ Registro agregado.");
+                alert(" Registro agregado.");
             }
 
         } catch (error) {
-            alert(`❌ Error en la operación: ${error.message}`);
+            alert(` Error en la operación: ${error.message}`);
             console.error(error);
         } finally {
             this.resetearFormulario();
@@ -123,7 +113,7 @@ class AdminController {
             submitBtn.textContent = 'Actualizar';
             cancelBtn.hidden = false;
         } catch (error) {
-            alert(`❌ No se pudo cargar el producto: ${error.message}`);
+            alert(` No se pudo cargar el producto: ${error.message}`);
         }
     }
 
@@ -133,9 +123,9 @@ class AdminController {
         }
         try {
             await AdminService.deleteProducto(id);
-            alert("🗑️ El registro fue eliminado.");
+            alert(" El registro fue eliminado.");
         } catch (error) {
-            alert(`❌ Falló la eliminación: ${error.message}`);
+            alert(` Falló la eliminación: ${error.message}`);
         } finally {
             this.cargarProductos();
         }
@@ -150,6 +140,6 @@ class AdminController {
     }
 }
 
-// Inicializar el controlador y exponer las funciones globales
+
 const adminController = new AdminController();
 window.adminController = adminController;

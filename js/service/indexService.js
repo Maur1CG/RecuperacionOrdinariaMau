@@ -1,10 +1,8 @@
-// js/indexService.js
-// Lógica de comunicación con la API para la vista del directorio.
 
-const API_URL = 'https://retoolapi.dev/zigfdK/tbProductos'; // ¡URL ACTUALIZADA!
+
+const API_URL = 'https://retoolapi.dev/zigfdK/tbProductos'; // 
 
 /**
- * Servicio para obtener todos los productos.
  * @returns {Promise<Array>} Lista de productos.
  */
 class IndexService {
