@@ -4,39 +4,47 @@
 const container = document.getElementById('cards-container');
 
 /**
- * Renderiza la lista de productos en la página principal.
+// js/indexController.js (SOLO SECCIÓN renderizarProductos MODIFICADA)
+
+// ... (resto del código)
+
+/**
+ * Renderiza la lista de productos en la página principal (usando solo clases de Bootstrap).
  * @param {Array} productos 
  */
 function renderizarProductos(productos) {
     container.innerHTML = '';
     if (!productos || productos.length === 0) {
-        container.innerHTML = `<p class="text-center">No hay productos disponibles.</p>`;
+        container.innerHTML = `<div class="col-12"><div class="alert alert-info text-center">No hay productos disponibles.</div></div>`;
         return;
     }
 
     productos.forEach(prod => {
-        // Usamos los campos: image, nombre, categoria, precio, stock, descripcion
         container.innerHTML += `
-            <div class="card">
-                <header>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
                     <img 
                         src="${prod.image || 'img/default-product.png'}" 
-                        alt="${prod.nombre}" 
-                        loading="lazy"
-                        style="height: 160px; object-fit: cover;"
+                        class="card-img-top" 
+                        alt="${prod.nombre}"
+                        style="height: 200px; object-fit: cover;"
                     />
-                </header>
-                <footer>
-                    <h2 class="card-title">${prod.nombre}</h2>
-                    <p>🏷️ **Categoría:** ${prod.categoria}</p>
-                    <p>💰 **Precio:** $${prod.precio ? parseFloat(prod.precio).toFixed(2) : 'N/A'}</p>
-                    <p>📦 **Stock:** ${prod.stock || 0}</p>
-                    <small>${prod.descripcion ? prod.descripcion.substring(0, 50) + '...' : 'Sin descripción'}</small>
-                </footer>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${prod.nombre}</h5>
+                        <p class="card-text mb-1"><span class="badge bg-secondary">${prod.categoria}</span></p>
+                        <p class="card-text mb-2 fw-bold text-success fs-4">$${prod.precio ? parseFloat(prod.precio).toFixed(2) : 'N/A'}</p>
+                        <ul class="list-unstyled small mt-auto">
+                            <li>📦 Stock: ${prod.stock || 0}</li>
+                            <li><small class="text-muted">${prod.descripcion ? prod.descripcion.substring(0, 50) + '...' : 'Sin descripción'}</small></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         `;
     });
 }
+
+// ... (resto del código)
 
 /**
  * Función principal para cargar los datos en la página.

@@ -16,10 +16,15 @@ const submitBtn = document.getElementById('btn-submit');
 const tbody = document.getElementById('productos-tbody');
 
 // --- Funciones de Renderizado ---
+// js/adminController.js (SOLO SECCIÓN renderizarTabla MODIFICADA)
+
+// ... (resto del código)
+
+// --- Funciones de Renderizado ---
 function renderizarTabla(productos) {
     tbody.innerHTML = '';
     if (!productos || productos.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center;">No hay productos registrados.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center">No hay productos registrados.</td></tr>`;
         return;
     }
     productos.forEach(prod => {
@@ -31,13 +36,15 @@ function renderizarTabla(productos) {
                 <td>$${prod.precio}</td>
                 <td>${prod.categoria}</td>
                 <td>
-                    <button onclick="adminController.cargarParaEditar('${prod.id}')" class="secondary">Editar</button>
-                    <button onclick="adminController.borrarProducto('${prod.id}')" class="contrast">Eliminar</button>
+                    <button onclick="adminController.cargarParaEditar('${prod.id}')" class="btn btn-sm btn-info me-1">Editar</button>
+                    <button onclick="adminController.borrarProducto('${prod.id}')" class="btn btn-sm btn-danger">Eliminar</button>
                 </td>
             </tr>
         `;
     });
 }
+
+// ... (resto del código)
 
 
 // --- Lógica del Controller ---
