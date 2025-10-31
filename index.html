@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Productos Gamer</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-  <link rel="stylesheet" href="css/index.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Directorio de Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+    <link rel="stylesheet" href="css/index.css" /> 
 </head>
 <body>
 
-  <header class="container">
-    <nav>
-      <ul>
-        <li><strong>Tienda Gamer</strong></li>
-        <li><a href="index.html">Productos</a></li>
-        <li><a href="admin.html">Administración</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="container">
+    <nav>
+      <ul>
+        <li><strong>Inventario de Productos</strong></li>
+        <li><a href="index.html">Directorio</a></li>
+        <li><a href="admin.html">Administración</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <main class="container">
-    <h1>Productos Disponibles</h1>
-    <div id="cards-container" class="cards-grid"></div>
-  </main>
+  <main class="container">
+    <h1>Catálogo de Productos</h1>
+    <div id="cards-container" class="cards-grid">
+          </div>
+  </main>
 
-  <footer class="container">
-    <p>&copy; 2025 Tienda Gamer</p>
-  </footer>
+  <footer class="container">
+    <p>&copy; 2025 CRUD Retool API</p>
+  </footer>
 
-  <script type="module" src="js/index.js"></script>
+    <script src="js/controllers/adminController.js"></script>
+  <script src="js/controllers/indexController.js"></script>
 </body>
 </html>
