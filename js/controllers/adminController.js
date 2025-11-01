@@ -29,7 +29,7 @@ function renderizarTabla(productos) {
                 <td>$${prod.precio}</td>
                 <td>${prod.categoria}</td>
                 <td>
-                    <button onclick="adminController.cargarParaEditar('${prod.id}')" class="btn btn-sm btn-info me-1">Editar</button>
+                    <button onclick="adminController.cargarParaEditar('${prod.id}')" class="btn btn-sm btn-success me-1">Actualizar</button>
                     <button onclick="adminController.borrarProducto('${prod.id}')" class="btn btn-sm btn-danger">Eliminar</button>
                 </td>
             </tr>

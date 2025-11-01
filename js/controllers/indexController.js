@@ -1,5 +1,3 @@
-// js/indexController.js
-// Lógica para renderizar los productos en la página principal.
 
 const container = document.getElementById('cards-container');
 
